@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this template, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+    <h:head>
+        <title>Mostrar Agenda</title>
+
+        <style type="text/css">
+
+            .agenda-table{   
+                border-collapse:collapse;
+            }
+
+            .agenda-table-header{
+                text-align:center;
+                background:none repeat scroll 0 0 #E5E5E5;
+                border-bottom:1px solid #BBBBBB;
+                padding:16px;
+            }
+
+            .agenda-table-odd-row{
+                text-align:center;
+                background:none repeat scroll 0 0 #FFFFFF;
+                border-top:1px solid #BBBBBB;
+            }
+
+            .agenda-table-even-row{
+                text-align:center;
+                background:none repeat scroll 0 0 #F9F9F9;
+                border-top:1px solid #BBBBBB;
+            }
+
+
+        </style>
+
+    </h:head>
+    <h:body>
+
+        <h:dataTable value="#{agendaBean.contactos}" var="contacto"
+                     styleClass="agenda-table"
+                     headerClass="agenda-table-header"
+                     rowClasses="agenda-table-odd-row,agenda-table-even-row">
+            <h:column>
+                <f:facet name="header" >Nombre</f:facet>
+                #{contacto.nombre}
+  
+            </h:column>
+            <h:column>
+                <f:facet name="header">Teléfono</f:facet>
+                #{contacto.telefono}
+            </h:column>
+        </h:dataTable>
+
+        <h:link value="Volver" outcome="menu" />
+   
+    </h:body>
+</html>
